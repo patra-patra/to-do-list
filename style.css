@@ -72,3 +72,23 @@
     .add-button:hover {
         background-color: rgba(255, 255, 255, 0.5);
     }
+/* Стили для создаваемых элементов */
+.added-item {
+    width: 90%;
+    background: #D36D88;
+    color: white;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    word-wrap: break-word;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Показываем, что на элемент можно нажать */
+    transition: background 0.3s; /* Плавный переход цвета */
+}
+
+    /* Стили при клике (менее насыщенный цвет) */
+    .added-item:active {
+        background: #E09BAF;
+    }
