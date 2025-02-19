@@ -12,17 +12,9 @@
             newItem.classList.add("added-item");
             newItem.textContent = text;
 
-            // Флаг состояния (true - бледный, false - оригинальный)
-            let isFaded = false;
-
             // Добавляем обработчик клика для переключения цвета
             newItem.addEventListener("click", function () {
-                if (isFaded) {
-                    newItem.style.background = "#D36D88"; // Исходный цвет
-                } else {
-                    newItem.style.background = "#E09BAF"; // Бледный цвет
-                }
-                isFaded = !isFaded; // Переключаем состояние
+                newItem.classList.toggle("clicked"); // Переключает класс
             });
 
             // Добавляем в контейнер
@@ -30,6 +22,9 @@
 
             // Очищаем поле ввода
             inputField.value = "";
+
+            // Автоматическая прокрутка вниз при добавлении новой задачи
+            outputContainer.scrollTop = outputContainer.scrollHeight;
         }
     });
 

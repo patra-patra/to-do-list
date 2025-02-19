@@ -88,7 +88,56 @@
     transition: background 0.3s; /* Плавный переход цвета */
 }
 
-    /* Стили при клике (менее насыщенный цвет) */
-    .added-item:active {
+/* Стили при клике (менее насыщенный цвет) */
+.added-item:active {
+    background: #E09BAF;
+}
+/* Контейнер для задач */
+.pink-square-bot {
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+    background: #D36D88;
+    box-shadow: 20px -20px 60px #be9197, -20px 20px 60px #ffc5cd;
+    padding: 10px;
+    overflow-y: auto; /* Добавляем вертикальный скролл при переполнении */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для создаваемых задач */
+.added-item {
+    width: 90%;
+    background: #D36D88;
+    color: white;
+    padding: 10px;
+    margin: 5px 0; /* Уменьшен отступ для компактности */
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    word-wrap: break-word;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    /* Меняем цвет при клике */
+    .added-item.clicked {
         background: #E09BAF;
     }
+
+/* Стилизация скроллбара (для красоты) */
+.pink-square-bot::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pink-square-bot::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.pink-square-bot::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
