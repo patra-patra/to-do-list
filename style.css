@@ -3,23 +3,72 @@
     padding: 0;
     height: 100%;
     display: flex;
-    flex-direction: column; /* Элементы выстраиваются вертикально */
     justify-content: center;
     align-items: center;
-    background: #1f4037; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #99f2c8, #1f4037);
-    background: linear-gradient(to left, #8D8E4A, #960684, #E5D5F4, #BA7987);
+    background: linear-gradient(to left, #79A93B, #CFE2A4);
 }
-/* Стили для розовых квадратов */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Общие стили для квадратов */
+.pink-square-top, .pink-square-bot {
+    width: 700px;
+    border-radius: 10px;
+    background: #D36D88;
+    box-shadow: 20px -20px 60px #be9197, -20px 20px 60px #ffc5cd;
+    box-sizing: border-box; /* Учитывает padding внутри ширины */
+}
+
+/* Верхний розовый квадрат */
 .pink-square-top {
-    width: 700px; /* Ширина квадрата */
-    height: 20px; /* Высота квадрата */
-    background-color: #ff69b4; /* Розовый цвет */
-    margin-bottom: 10px; /* Отступ между квадратами */
-    margin-top: 90px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px; /* Вернул отступ снизу */
 }
+
+/* Нижний розовый квадрат */
 .pink-square-bot {
-    width: 700px; /* Ширина квадрата */
-    height: 500px; /* Высота квадрата */
-    background-color: #ff69b4; /* Розовый цвет */
+    height: 500px;
 }
+
+/* Поле ввода */
+.pink-square-top input {
+    flex-grow: 1;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding-left: 20px;
+    outline: none;
+}
+
+    .pink-square-top input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+/* Кнопка */
+.add-button {
+    width: 120px;
+    height: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .add-button:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
