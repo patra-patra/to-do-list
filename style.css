@@ -1,0 +1,25 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Элементы выстраиваются вертикально */
+    justify-content: center;
+    align-items: center;
+    background: #1f4037; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #99f2c8, #1f4037);
+    background: linear-gradient(to left, #8D8E4A, #960684, #E5D5F4, #BA7987);
+}
+/* Стили для розовых квадратов */
+.pink-square-top {
+    width: 700px; /* Ширина квадрата */
+    height: 20px; /* Высота квадрата */
+    background-color: #ff69b4; /* Розовый цвет */
+    margin-bottom: 10px; /* Отступ между квадратами */
+    margin-top: 90px;
+}
+.pink-square-bot {
+    width: 700px; /* Ширина квадрата */
+    height: 500px; /* Высота квадрата */
+    background-color: #ff69b4; /* Розовый цвет */
+}
