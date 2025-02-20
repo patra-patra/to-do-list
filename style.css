@@ -1,50 +1,68 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Overdoze Sans';
+    src: url('overdoze_sans/overdozesans.ttf') format('truetype'), url('overdoze_sans/overdozesans.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Применяем шрифт ко всему сайту */
+body {
+    font-family: 'Overdoze Sans', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to left, #79A93B, #CFE2A4);
+    /*background: linear-gradient(to left, #D7C4BB, #A58D7F);*/ /* Переход от Alpine Oat к Mocha Mousse */
+}
+
+h1 {
+    font-size: 60px; /* Достаточно крупный заголовок */
+    color: #5A4235; /* Глубокий теплый коричневый, подходящий к теме */
+    margin-bottom: 15px; /* Добавляем отступ вниз */
+    text-align: center;
+    font-weight: bold;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
 }
 
 /* Общие стили для квадратов */
 .pink-square-top, .pink-square-bot {
     width: 700px;
     border-radius: 10px;
-    background: #D36D88;
-    box-shadow: 20px -20px 60px #be9197, -20px 20px 60px #ffc5cd;
-    box-sizing: border-box; /* Учитывает padding внутри ширины */
+    background: #A58D7F; /* Mocha Mousse */
+    box-shadow: 20px -20px 50px rgba(160, 120, 100, 0.6), -20px 20px 50px rgba(220, 180, 160, 0.8); /* Теплые коричнево-бежевые тени */
+    box-sizing: border-box;
 }
 
-/* Верхний розовый квадрат */
+/* Верхний квадрат */
 .pink-square-top {
     height: 70px;
     display: flex;
     align-items: center;
     padding: 10px;
-    margin-bottom: 10px; /* Вернул отступ снизу */
+    margin-bottom: 10px;
 }
 
-/* Нижний розовый квадрат */
+/* Нижний квадрат */
 .pink-square-bot {
     height: 500px;
 }
 
 /* Поле ввода */
 .pink-square-top input {
+    font-family: 'Overdoze Sans', sans-serif;
     flex-grow: 1;
     height: 100%;
     border: none;
     background-color: transparent;
-    color: white;
+    color: #FFFFFF;
     font-size: 16px;
     padding-left: 20px;
     outline: none;
@@ -56,11 +74,12 @@
 
 /* Кнопка */
 .add-button {
+    font-family: 'Overdoze Sans', sans-serif;
     width: 120px;
     height: 50px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    color: white;
+    background-color: #D7C4BB; /* Alpine Oat */
+    color: #A58D7F; /* Mocha Mousse */
     font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
@@ -70,37 +89,38 @@
 }
 
     .add-button:hover {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #C4B2A3; /* Более темный оттенок Alpine Oat */
     }
+
 /* Стили для создаваемых элементов */
 .added-item {
     width: 90%;
-    background: #D36D88;
-    color: white;
+    background: #A58D7F; /* Mocha Mousse */
+    color: #FFFFFF;
     padding: 10px;
     margin: 10px auto;
     border-radius: 5px;
     font-size: 16px;
     text-align: center;
     word-wrap: break-word;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer; /* Показываем, что на элемент можно нажать */
-    transition: background 0.3s; /* Плавный переход цвета */
+    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5); /* Теплая тень */
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-/* Стили при клике (менее насыщенный цвет) */
-.added-item:active {
-    background: #E09BAF;
-}
+    .added-item:active {
+        background: #8C7B70; /* Темный оттенок Mocha Mousse */
+    }
+
 /* Контейнер для задач */
 .pink-square-bot {
     width: 700px;
     height: 500px;
     border-radius: 10px;
-    background: #D36D88;
-    box-shadow: 20px -20px 60px #be9197, -20px 20px 60px #ffc5cd;
+    background: #A58D7F; /* Mocha Mousse */
+    box-shadow: 20px -20px 50px rgba(160, 120, 100, 0.6), -20px 20px 50px rgba(220, 180, 160, 0.8);
     padding: 10px;
-    overflow-y: auto; /* Добавляем вертикальный скролл при переполнении */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,25 +129,24 @@
 /* Стили для создаваемых задач */
 .added-item {
     width: 90%;
-    background: #D36D88;
-    color: white;
+    background: wheat;/*#A58D7F;*/ /* Mocha Mousse */
+    color: #FFFFFF;
     padding: 10px;
-    margin: 5px 0; /* Уменьшен отступ для компактности */
+    margin: 5px 0;
     border-radius: 5px;
     font-size: 16px;
     text-align: center;
     word-wrap: break-word;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5); /* Мягкая теплая тень */
     cursor: pointer;
     transition: background 0.3s;
 }
 
-    /* Меняем цвет при клике */
     .added-item.clicked {
-        background: #E09BAF;
+        background: #8C7B70; /* Темный оттенок Mocha Mousse */
     }
 
-/* Стилизация скроллбара (для красоты) */
+/* Стилизация скроллбара */
 .pink-square-bot::-webkit-scrollbar {
     width: 8px;
 }
@@ -141,3 +160,43 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
+.added-item {
+    width: 90%;
+    background: #A58D7F; /* Mocha Mousse */
+    color: #FFFFFF;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: justify; /* Выравнивание по ширине */
+    word-wrap: break-word;
+    position: relative; /* Нужно для позиционирования кнопок */
+    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Контейнер для кнопок в правом верхнем углу */
+.task-buttons {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+    /* Общие стили для кнопок */
+    .task-buttons button {
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        color: white;
+        font-size: 14px;
+        padding: 3px 6px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+        .task-buttons button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
