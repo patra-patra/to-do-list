@@ -162,27 +162,31 @@ h1 {
 }
 .added-item {
     width: 90%;
-    background: #A58D7F; /* Mocha Mousse */
+    background: wheat;
     color: #FFFFFF;
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
     font-size: 16px;
-    text-align: justify; /* Выравнивание по ширине */
+    text-align: justify;
     word-wrap: break-word;
-    position: relative; /* Нужно для позиционирования кнопок */
     box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5);
     cursor: pointer;
     transition: background 0.3s;
-}
-
-/* Контейнер для кнопок в правом верхнем углу */
-.task-buttons {
-    position: absolute;
-    top: 5px;
-    right: 5px;
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание текста */
+}
+    .added-item.clicked {
+        background: #8C7B70 !important; /* Более темный оттенок Mocha Mousse */
+    }
+
+/* Контейнер для кнопок */
+.task-buttons {
+    display: flex;
+    justify-content: flex-end; /* Выравнивание кнопок по правому краю */
+    width: 100%;
+    margin-bottom: 5px; /* Отступ между кнопками и текстом */
 }
 
     /* Общие стили для кнопок */

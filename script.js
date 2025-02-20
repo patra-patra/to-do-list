@@ -10,12 +10,6 @@
             const newItem = document.createElement("div");
             newItem.classList.add("added-item");
 
-            // Создаём контейнер для текста
-            const taskText = document.createElement("span");
-            taskText.textContent = text;
-            taskText.classList.add("task-text");
-            taskText.contentEditable = "false";
-
             // Создаём контейнер для кнопок
             const buttonContainer = document.createElement("div");
             buttonContainer.classList.add("task-buttons");
@@ -48,9 +42,15 @@
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
 
+            // Создаём контейнер для текста
+            const taskText = document.createElement("div");
+            taskText.textContent = text;
+            taskText.classList.add("task-text");
+            taskText.contentEditable = "false";
+
             // Добавляем элементы в задачу
-            newItem.appendChild(taskText);
             newItem.appendChild(buttonContainer);
+            newItem.appendChild(taskText);
 
             // Добавляем задачу в контейнер
             outputContainer.appendChild(newItem);
@@ -68,10 +68,11 @@
         }
     });
 
-    // Добавляем возможность смены цвета при клике на задачу
     outputContainer.addEventListener("click", function (event) {
-        if (event.target.classList.contains("added-item")) {
-            event.target.classList.toggle("clicked");
+        let task = event.target.closest(".added-item"); // Находим ближайший родительский элемент .added-item
+        if (task) {
+            task.classList.toggle("clicked"); // Добавляем/убираем класс
         }
     });
+
 });
