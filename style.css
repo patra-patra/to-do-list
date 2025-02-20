@@ -1,44 +1,53 @@
-﻿@font-face {
-    font-family: 'Overdoze Sans';
-    src: url('overdoze_sans/overdozesans.ttf') format('truetype'), url('overdoze_sans/overdozesans.otf') format('opentype');
+﻿/* Подключение шрифтов */
+@font-face {
+    font-family: 'Nocturne Serif';
+    src: url('fonts/NocturneSerif-ExtraBold Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* Применяем шрифт ко всему сайту */
+@font-face {
+    font-family: 'K1FS';
+    src: url('fonts/K1FS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Общие стили для всего сайта */
 body {
-    font-family: 'Overdoze Sans', sans-serif;
+    font-family: 'K1FS', sans-serif; /* Теперь весь текст будет в K1F5 */
     margin: 0;
     padding: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background: linear-gradient(to left, #D7C4BB, #A58D7F);*/ /* Переход от Alpine Oat к Mocha Mousse */
+    background: linear-gradient(to left, #F4F6FA, #B5BFDB);
 }
 
+/* Заголовок h1 в Nocturne Serif */
 h1 {
-    font-size: 60px; /* Достаточно крупный заголовок */
-    color: #5A4235; /* Глубокий теплый коричневый, подходящий к теме */
-    margin-bottom: 15px; /* Добавляем отступ вниз */
+    font-family: 'Nocturne Serif', serif;
+    font-size: 40px;
+    margin-bottom: 15px;
     text-align: center;
     font-weight: bold;
+    background: linear-gradient(to left, #4C4E81, #646CAC, #4C4E81);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
 }
 
 /* Общие стили для квадратов */
 .pink-square-top, .pink-square-bot {
     width: 700px;
     border-radius: 10px;
-    background: #A58D7F; /* Mocha Mousse */
-    box-shadow: 20px -20px 50px rgba(160, 120, 100, 0.6), -20px 20px 50px rgba(220, 180, 160, 0.8); /* Теплые коричнево-бежевые тени */
-    box-sizing: border-box;
+    background: #474972;
 }
 
 /* Верхний квадрат */
@@ -53,11 +62,17 @@ h1 {
 /* Нижний квадрат */
 .pink-square-bot {
     height: 500px;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Поле ввода */
+/* Поле ввода с K1F5 */
 .pink-square-top input {
-    font-family: 'Overdoze Sans', sans-serif;
+    font-family: 'K1FS', sans-serif;
     flex-grow: 1;
     height: 100%;
     border: none;
@@ -67,102 +82,35 @@ h1 {
     padding-left: 20px;
     outline: none;
 }
-
     .pink-square-top input::placeholder {
+        font-family: 'K1FS', sans-serif;
         color: rgba(255, 255, 255, 0.7);
     }
-
 /* Кнопка */
 .add-button {
     font-family: 'Overdoze Sans', sans-serif;
     width: 120px;
     height: 50px;
     border: none;
-    background-color: #D7C4BB; /* Alpine Oat */
-    color: #A58D7F; /* Mocha Mousse */
+    background-color: #D7C4BB;
+    color: #A58D7F;
     font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
     margin-left: 10px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
     .add-button:hover {
-        background-color: #C4B2A3; /* Более темный оттенок Alpine Oat */
+        background-color: #C4B2A3;
     }
 
 /* Стили для создаваемых элементов */
 .added-item {
-    width: 90%;
-    background: #A58D7F; /* Mocha Mousse */
-    color: #FFFFFF;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    word-wrap: break-word;
-    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5); /* Теплая тень */
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-    .added-item:active {
-        background: #8C7B70; /* Темный оттенок Mocha Mousse */
-    }
-
-/* Контейнер для задач */
-.pink-square-bot {
-    width: 700px;
-    height: 500px;
-    border-radius: 10px;
-    background: #A58D7F; /* Mocha Mousse */
-    box-shadow: 20px -20px 50px rgba(160, 120, 100, 0.6), -20px 20px 50px rgba(220, 180, 160, 0.8);
-    padding: 10px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Стили для создаваемых задач */
-.added-item {
-    width: 90%;
-    background: wheat;/*#A58D7F;*/ /* Mocha Mousse */
-    color: #FFFFFF;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    word-wrap: break-word;
-    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5); /* Мягкая теплая тень */
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-    .added-item.clicked {
-        background: #8C7B70; /* Темный оттенок Mocha Mousse */
-    }
-
-/* Стилизация скроллбара */
-.pink-square-bot::-webkit-scrollbar {
-    width: 8px;
-}
-
-.pink-square-bot::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-}
-
-.pink-square-bot::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-.added-item {
-    width: 90%;
-    background: wheat;
+    width: 97%;
+    background: #919EC9;
+    background: linear-gradient(to left, #F4F6FA, #B5BFDB);
     color: #FFFFFF;
     padding: 10px;
     margin: 5px 0;
@@ -170,23 +118,25 @@ h1 {
     font-size: 16px;
     text-align: justify;
     word-wrap: break-word;
-    box-shadow: 3px 3px 10px rgba(170, 130, 110, 0.5);
     cursor: pointer;
     transition: background 0.3s;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Выравнивание текста */
+    align-items: flex-start;
 }
+
     .added-item.clicked {
-        background: #8C7B70 !important; /* Более темный оттенок Mocha Mousse */
+        background: #646CAC;
+        color: #919EC9;
     }
 
 /* Контейнер для кнопок */
 .task-buttons {
     display: flex;
-    justify-content: flex-end; /* Выравнивание кнопок по правому краю */
+    justify-content: flex-end;
     width: 100%;
-    margin-bottom: 5px; /* Отступ между кнопками и текстом */
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
     /* Общие стили для кнопок */
@@ -204,3 +154,25 @@ h1 {
         .task-buttons button:hover {
             background: rgba(255, 255, 255, 0.5);
         }
+
+.task-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+/* Стилизация скроллбара */
+.pink-square-bot::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pink-square-bot::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.pink-square-bot::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}

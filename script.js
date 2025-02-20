@@ -14,6 +14,14 @@
             const buttonContainer = document.createElement("div");
             buttonContainer.classList.add("task-buttons");
 
+            // Создаём горизонтальную линию
+            const separator = document.createElement("hr");
+            separator.style.flexGrow = "1"; // Линия будет занимать всё пространство перед кнопками
+            separator.style.border = "none";
+            separator.style.height = "1px";
+            separator.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+            separator.style.marginRight = "5px"; // Отступ справа перед кнопками
+
             // Кнопка редактирования
             const editButton = document.createElement("button");
             editButton.textContent = "🖊";
@@ -38,7 +46,8 @@
                 newItem.remove();
             });
 
-            // Добавляем кнопки в контейнер
+            // Добавляем элементы в контейнер кнопок
+            buttonContainer.appendChild(separator);
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
 
@@ -49,8 +58,8 @@
             taskText.contentEditable = "false";
 
             // Добавляем элементы в задачу
-            newItem.appendChild(buttonContainer);
             newItem.appendChild(taskText);
+            newItem.appendChild(buttonContainer);
 
             // Добавляем задачу в контейнер
             outputContainer.appendChild(newItem);
@@ -74,5 +83,4 @@
             task.classList.toggle("clicked"); // Добавляем/убираем класс
         }
     });
-
 });
