@@ -22,7 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to left, #F4F6FA, #B5BFDB);
+    background: linear-gradient(to top, #F4F6FA, #B5BFDB);
 }
 
 /* Заголовок h1 в Nocturne Serif */
@@ -92,7 +92,7 @@ h1 {
     width: 120px;
     height: 50px;
     border: none;
-    background-color: #D7C4BB;
+    background-color: #919EC9;
     color: #A58D7F;
     font-size: 16px;
     font-weight: bold;
@@ -103,7 +103,7 @@ h1 {
 }
 
     .add-button:hover {
-        background-color: #C4B2A3;
+        background-color: #E6E9F3;
     }
 
 /* Стили для создаваемых элементов */
@@ -175,4 +175,20 @@ h1 {
 .pink-square-bot::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
+}
+/* Контейнер для параллакса */
+.parallax-container {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 150px; /* Уменьшенный размер изображения */
+    height: auto;
+    pointer-events: none; /* Чтобы изображение не мешало кликам */
+}
+
+/* Само изображение */
+.parallax-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
 }
