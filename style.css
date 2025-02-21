@@ -179,16 +179,31 @@ h1 {
 /* Контейнер для параллакса */
 .parallax-container {
     position: fixed;
-    bottom: 5%;
+    bottom: 5%; /* Опускаем контейнер ниже */
     right: 5%;
-    width: 150px; /* Уменьшенный размер изображения */
+    width: 200px; /* Размер блока */
     height: auto;
-    pointer-events: none; /* Чтобы изображение не мешало кликам */
+    pointer-events: none;
+    z-index: 10; /* Убедимся, что блок находится поверх других элементов */
 }
 
-/* Само изображение */
+/* Фон (сеточка) */
+.parallax-background {
+    position: absolute;
+    width: 120%;
+    height: auto;
+    opacity: 0.5; /* Полупрозрачность */
+    transition: transform 0.2s ease-out;
+    bottom: 0; /* Оставляем сетку на месте */
+    right: 0;
+}
+
+/* Телефон */
 .parallax-image {
+    position: absolute;
     width: 100%;
     height: auto;
     transition: transform 0.1s ease-out;
+    bottom: -20px; /* Опускаем телефон ниже */
+    left: -20px; /* Смещаем телефон левее */
 }

@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const inputField = document.getElementById("textInput");
     const addButton = document.getElementById("addButton");
     const outputContainer = document.getElementById("outputContainer");
@@ -91,16 +91,28 @@
 
     outputContainer.addEventListener("click", function (event) {
         let task = event.target.closest(".added-item");
-        if (task && !event.target.closest("button") && event.target !== task.querySelector(".task-text")) {
+        if (
+            task &&
+            !event.target.closest("button") &&
+            event.target !== task.querySelector(".task-text")
+        ) {
             task.classList.toggle("clicked");
         }
     });
 });
 document.addEventListener("mousemove", (event) => {
-    let parallaxImage = document.querySelector(".parallax-image");
+    let phone = document.querySelector(".parallax-image");
+    let net = document.querySelector(".parallax-background");
 
-    let x = (event.clientX / window.innerWidth - 0.5) * 20; // Смещение по горизонтали
-    let y = (event.clientY / window.innerHeight - 0.5) * 10; // Смещение по вертикали
+    // Смещение для телефона (ниже и левее)
+    let xPhone = (event.clientX / window.innerWidth - 0.5) * 30; // Больше смещение по X
+    let yPhone = (event.clientY / window.innerHeight - 0.5) * 20; // Больше смещение по Y
 
-    parallaxImage.style.transform = `translate(${x}px, ${y}px)`;
+    // Смещение для сетки (оставляем на месте)
+    let xBg = (event.clientX / window.innerWidth - 0.5) * 10; // Меньше смещение для сетки
+    let yBg = (event.clientY / window.innerHeight - 0.5) * 5;
+
+    // Применяем смещение
+    phone.style.transform = `translate(${xPhone}px, ${yPhone}px)`;
+    net.style.transform = `translate(${xBg}px, ${yBg}px)`;
 });
