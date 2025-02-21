@@ -52,7 +52,7 @@ h1 {
 
 /* Верхний квадрат */
 .pink-square-top {
-    height: 70px;
+    height: 50px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -180,7 +180,7 @@ h1 {
 .parallax-container {
     position: fixed;
     bottom: 5%; /* Опускаем контейнер ниже */
-    right: 5%;
+    right: 15%;
     width: 200px; /* Размер блока */
     height: auto;
     pointer-events: none;
@@ -207,3 +207,40 @@ h1 {
     bottom: -20px; /* Опускаем телефон ниже */
     left: -20px; /* Смещаем телефон левее */
 }
+
+/* Контейнер для книг (убедимся, что книги выше растения) */
+/* Контейнер для книг */
+.parallax-books-container {
+    position: fixed;
+    bottom: 5%; /* Опускаем книги ниже */
+    left: 24%; /* Перемещаем книги правее, ближе к контейнеру задач */
+    width: 150px; /* Размер изображения книг */
+    height: auto;
+    pointer-events: none;
+    z-index: 10; /* Книги выше других элементов */
+    transform: translateX(-50%); /* Смещаем книги влево на половину их ширины */
+}
+
+/* Изображение книг */
+.parallax-books {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
+}
+.parallax-plant-container {
+    position: fixed;
+    bottom: 15%; /* Позиционируем растение ниже */
+    left: 14%; /* Размещаем растение слева от контейнера задач */
+    width: 150px; /* Размер изображения растения */
+    height: auto;
+    pointer-events: none;
+    z-index: 5; /* Растение будет за книгами (z-index книг должен быть выше) */
+}
+
+/* Изображение растения */
+.parallax-plant {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
+}
+

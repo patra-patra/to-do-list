@@ -103,16 +103,28 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("mousemove", (event) => {
     let phone = document.querySelector(".parallax-image");
     let net = document.querySelector(".parallax-background");
+    let books = document.querySelector(".parallax-books");
+    let plant = document.querySelector(".parallax-plant");
 
-    // Смещение для телефона (ниже и левее)
-    let xPhone = (event.clientX / window.innerWidth - 0.5) * 30; // Больше смещение по X
-    let yPhone = (event.clientY / window.innerHeight - 0.5) * 20; // Больше смещение по Y
+    // Параллакс для телефона
+    let xPhone = (event.clientX / window.innerWidth - 0.5) * 30;
+    let yPhone = (event.clientY / window.innerHeight - 0.5) * 20;
 
-    // Смещение для сетки (оставляем на месте)
-    let xBg = (event.clientX / window.innerWidth - 0.5) * 10; // Меньше смещение для сетки
+    // Параллакс для сетки
+    let xBg = (event.clientX / window.innerWidth - 0.5) * 10;
     let yBg = (event.clientY / window.innerHeight - 0.5) * 5;
+
+    // Параллакс для книг
+    let xBooks = (event.clientX / window.innerWidth - 0.5) * 20;
+    let yBooks = (event.clientY / window.innerHeight - 0.5) * 15;
+
+    // Параллакс для растения
+    let xPlant = (event.clientX / window.innerWidth - 0.5) * 15; // Меньше смещение для растения
+    let yPlant = (event.clientY / window.innerHeight - 0.5) * 10;
 
     // Применяем смещение
     phone.style.transform = `translate(${xPhone}px, ${yPhone}px)`;
     net.style.transform = `translate(${xBg}px, ${yBg}px)`;
+    books.style.transform = `translate(${xBooks}px, ${yBooks}px)`;
+    plant.style.transform = `translate(${xPlant}px, ${yPlant}px)`;
 });
