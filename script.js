@@ -14,6 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
             const buttonContainer = document.createElement("div");
             buttonContainer.classList.add("task-buttons");
 
+            // Создаём элемент для времени и даты
+            const timeDateElement = document.createElement("div");
+            timeDateElement.classList.add("time-date");
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString("ru-RU", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+            });
+            const formattedTime = now.toLocaleTimeString("ru-RU", {
+                hour: "2-digit",
+                minute: "2-digit",
+            });
+            timeDateElement.textContent = `${formattedDate}, ${formattedTime}`;
+
             // Создаём горизонтальную линию
             const separator = document.createElement("hr");
             separator.style.flexGrow = "1";
@@ -66,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // Добавляем элементы в контейнер кнопок
+            buttonContainer.appendChild(timeDateElement); // Добавляем время и дату
             buttonContainer.appendChild(separator);
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
@@ -99,32 +115,4 @@ document.addEventListener("DOMContentLoaded", function () {
             task.classList.toggle("clicked");
         }
     });
-});
-document.addEventListener("mousemove", (event) => {
-    let phone = document.querySelector(".parallax-image");
-    let net = document.querySelector(".parallax-background");
-    let books = document.querySelector(".parallax-books");
-    let plant = document.querySelector(".parallax-plant");
-
-    // Параллакс для телефона
-    let xPhone = (event.clientX / window.innerWidth - 0.5) * 30;
-    let yPhone = (event.clientY / window.innerHeight - 0.5) * 20;
-
-    // Параллакс для сетки
-    let xBg = (event.clientX / window.innerWidth - 0.5) * 10;
-    let yBg = (event.clientY / window.innerHeight - 0.5) * 5;
-
-    // Параллакс для книг
-    let xBooks = (event.clientX / window.innerWidth - 0.5) * 20;
-    let yBooks = (event.clientY / window.innerHeight - 0.5) * 15;
-
-    // Параллакс для растения
-    let xPlant = (event.clientX / window.innerWidth - 0.5) * 15; // Меньше смещение для растения
-    let yPlant = (event.clientY / window.innerHeight - 0.5) * 10;
-
-    // Применяем смещение
-    phone.style.transform = `translate(${xPhone}px, ${yPhone}px)`;
-    net.style.transform = `translate(${xBg}px, ${yBg}px)`;
-    books.style.transform = `translate(${xBooks}px, ${yBooks}px)`;
-    plant.style.transform = `translate(${xPlant}px, ${yPlant}px)`;
 });
