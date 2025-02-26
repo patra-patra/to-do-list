@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteButton.classList.add("task-button");
 
             // Стили для кнопок
-            editButton.style.width = "30px";
-            editButton.style.height = "30px";
-            deleteButton.style.width = "30px";
-            deleteButton.style.height = "30px";
+            editButton.style.width = "20px";
+            editButton.style.height = "20px";
+            deleteButton.style.width = "20px";
+            deleteButton.style.height = "20px";
 
             // Устанавливаем небольшой отступ между кнопками
             editButton.style.marginRight = "5px";

@@ -31,18 +31,30 @@ body {
 h1 {
     font-family: 'Nocturne Serif', serif;
     font-size: 40px;
-    margin-bottom: 15px;
+    margin: 0; /* Убираем все отступы */
+    margin-bottom: 15px; /* Добавляем только нижний отступ */
     text-align: center;
     font-weight: bold;
-    background: linear-gradient(to left, #4C4E81, #646CAC, #4C4E81);
+    background: linear-gradient(to left, #4C4E81, #646CAC, #7782B8, #4C4E81);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+hr {
+    border: none; /* Убираем стандартную границу */
+    height: 2px; /* Толщина линии */
+    background-color: #474972; /* Цвет линии */
+    margin: 8px 10px 0 0; /* Отступы */
+    flex-grow: 1; /* Растягиваем линию */
+    box-sizing: border-box;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0; /* Убедитесь, что у контейнера нет лишних отступов */
+    padding: 0;
 }
 
 /* Общие стили для квадратов */
@@ -89,6 +101,7 @@ h1 {
         font-family: 'Open Sans Variable', sans-serif;
         color: #919EC9;
     }
+
 /* Кнопка */
 .add-button {
     font-family: 'Open Sans Variable', sans-serif;
@@ -147,15 +160,16 @@ h1 {
         background: rgba(255, 255, 255, 0.3);
         border: none;
         color: #474972;
-        font-size: 20px;
+        font-size: 10px;
         padding: 3px 6px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background 0.2s;
+        font-weight: bold;
+        transition: background 0.4s;
     }
 
         .task-buttons button:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: white;
         }
 
 .task-text {
@@ -170,6 +184,7 @@ h1 {
     margin: 0;
     font-size: 25px;
     font-family: 'Nocturne Serif', serif;
+    color: #4C4E81;
 }
 
 /* Стилизация скроллбара */
@@ -186,6 +201,7 @@ h1 {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
+
 /* Контейнер для параллакса */
 .parallax-container {
     position: fixed;
@@ -195,17 +211,17 @@ h1 {
     height: auto;
     pointer-events: none;
     z-index: 10; /* Убедимся, что блок находится поверх других элементов */
+    display: none; /* По умолчанию скрываем */
 }
 
-/* Фон (сеточка) */
 .parallax-background {
     position: absolute;
     width: 120%;
     height: auto;
     opacity: 0.5; /* Полупрозрачность */
     transition: transform 0.2s ease-out;
-    bottom: 0; /* Оставляем сетку на месте */
-    right: 0;
+    bottom: 20px; /* Оставляем сетку на месте */
+    right: -20px; /* Сдвигаем сетку вправо */
 }
 
 /* Телефон */
@@ -218,8 +234,6 @@ h1 {
     left: -20px; /* Смещаем телефон левее */
 }
 
-/* Контейнер для книг (убедимся, что книги выше растения) */
-/* Контейнер для книг */
 .parallax-books-container {
     position: fixed;
     bottom: 5%; /* Опускаем книги ниже */
@@ -229,6 +243,7 @@ h1 {
     pointer-events: none;
     z-index: 10; /* Книги выше других элементов */
     transform: translateX(-50%); /* Смещаем книги влево на половину их ширины */
+    display: none; /* По умолчанию скрываем */
 }
 
 /* Изображение книг */
@@ -246,6 +261,7 @@ h1 {
     height: auto;
     pointer-events: none;
     z-index: 5; /* Растение будет за книгами (z-index книг должен быть выше) */
+    display: none; /* По умолчанию скрываем */
 }
 
 /* Изображение растения */
@@ -254,15 +270,116 @@ h1 {
     height: auto;
     transition: transform 0.1s ease-out;
 }
+
 .task-text.strikethrough {
     text-decoration: line-through;
     color: #919EC9; /* Цвет текста при зачеркивании */
 }
+
 .task-status {
-/*    font-family: 'Nocturne Serif', serif;*/
     font-family: 'Open Sans Variable', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: #474972;
-/*    font-weight: bold;*/
-    margin-right: 10px;
+    margin-right: 5px;
+}
+
+/* Медиа-запросы для адаптивности */
+
+/* Для экранов меньше 768px (планшеты и мобильные устройства) */
+@media (max-width: 768px) {
+    body {
+        background: linear-gradient(to top, #F4F6FA, #B5BFDB);
+    }
+
+    .container {
+        width: 90%; /* Уменьшаем ширину контейнера */
+    }
+
+    .pink-square-top, .pink-square-bot {
+        width: 100%; /* Квадраты занимают всю ширину контейнера */
+    }
+
+    .pink-square-bot {
+        height: 400px; /* Уменьшаем высоту нижнего квадрата */
+    }
+
+    h1 {
+        font-size: 30px; /* Уменьшаем размер заголовка */
+    }
+
+    .task-text {
+        font-size: 20px; /* Уменьшаем размер текста задач */
+    }
+
+    .add-button {
+        width: 35px; /* Уменьшаем размер кнопки */
+        height: 35px;
+    }
+
+    .pink-square-top {
+        padding: 5px; /* Уменьшаем отступы внутри верхнего квадрата */
+    }
+
+    .pink-square-bot {
+        padding: 5px; /* Уменьшаем отступы внутри нижнего квадрата */
+    }
+
+    .added-item {
+        padding: 8px; /* Уменьшаем отступы внутри элементов задач */
+    }
+
+    .pink-square-bot::-webkit-scrollbar {
+        width: 6px; /* Уменьшаем ширину скроллбара */
+    }
+
+    .pink-square-bot::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.7); /* Делаем скроллбар более заметным */
+    }
+}
+
+/* Для экранов меньше 480px (мобильные устройства) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Ещё больше уменьшаем размер заголовка */
+    }
+
+    .pink-square-bot {
+        height: 300px; /* Ещё больше уменьшаем высоту нижнего квадрата */
+    }
+
+    .task-text {
+        font-size: 18px; /* Ещё больше уменьшаем размер текста задач */
+    }
+
+    .add-button {
+        width: 30px; /* Ещё больше уменьшаем размер кнопки */
+        height: 30px;
+    }
+}
+
+/* Для экранов меньше 320px (очень маленькие устройства) */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 20px; /* Ещё больше уменьшаем размер заголовка */
+    }
+
+    .pink-square-bot {
+        height: 250px; /* Ещё больше уменьшаем высоту нижнего квадрата */
+    }
+
+    .task-text {
+        font-size: 16px; /* Ещё больше уменьшаем размер текста задач */
+    }
+
+    .add-button {
+        width: 25px; /* Ещё больше уменьшаем размер кнопки */
+        height: 25px;
+    }
+}
+
+/* Показываем изображения на экранах шире 1024px */
+@media (min-width: 1400px) {
+    .parallax-container, .parallax-books-container, .parallax-plant-container {
+        display: block; /* или flex, в зависимости от вашей верстки */
+    }
 }
