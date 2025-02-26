@@ -9,12 +9,12 @@
 @font-face {
     font-family: 'Open Sans Variable';
     src: url('fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900; /* Диапазон весов шрифта */
-    font-stretch: 75% 100%; /* Диапазон ширины шрифта */
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
     font-style: normal;
 }
 
-/* Общие стили для всего сайта */
+/* Общие стили */
 body {
     font-family: 'Open Sans Variable', sans-serif;
     margin: 0;
@@ -27,14 +27,14 @@ body {
     min-height: 100vh;
 }
 
-/* Заголовок h1 в Nocturne Serif */
 h1 {
     font-family: 'Nocturne Serif', serif;
     font-size: 40px;
+    margin: 0;
     margin-bottom: 15px;
     text-align: center;
     font-weight: bold;
-    background: linear-gradient(to left, #4C4E81, #646CAC, #4C4E81);
+    background: linear-gradient(to left, #4C4E81, #646CAC, #7782B8, #4C4E81);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -43,17 +43,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Общие стили для квадратов */
-.pink-square-top, .pink-square-bot {
+/* Стили для квадратов */
+.blue-square-top, .blue-square-bot {
     width: 700px;
     border-radius: 10px;
     background: #474972;
 }
 
-/* Верхний квадрат */
-.pink-square-top {
+.blue-square-top {
     height: 40px;
     display: flex;
     align-items: center;
@@ -61,8 +62,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* Нижний квадрат */
-.pink-square-bot {
+.blue-square-bot {
     height: 500px;
     padding: 10px;
     overflow-y: auto;
@@ -72,7 +72,7 @@ h1 {
 }
 
 /* Поле ввода */
-.pink-square-top input {
+.blue-square-top input {
     font-family: 'Open Sans Variable', sans-serif;
     flex-grow: 1;
     height: 100%;
@@ -85,11 +85,12 @@ h1 {
     outline: none;
 }
 
-    .pink-square-top input::placeholder {
+    .blue-square-top input::placeholder {
         font-family: 'Open Sans Variable', sans-serif;
         color: #919EC9;
     }
-/* Кнопка */
+
+/* Кнопка добавления */
 .add-button {
     font-family: 'Open Sans Variable', sans-serif;
     width: 40px;
@@ -109,10 +110,9 @@ h1 {
         background-color: #595C9C;
     }
 
-/* Стили для создаваемых элементов */
+/* Стили для задач */
 .added-item {
     width: 97%;
-    background: #919EC9;
     background: linear-gradient(to top, #F4F6FA, #B5BFDB);
     color: #474972;
     padding: 10px;
@@ -133,30 +133,28 @@ h1 {
         color: #919EC9;
     }
 
-/* Контейнер для кнопок */
 .task-buttons {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     margin-bottom: 5px;
-
+    margin-left: 1px;
 }
 
-    /* Общие стили для кнопок */
     .task-buttons button {
         background: rgba(255, 255, 255, 0.3);
         border: none;
         color: #474972;
         font-size: 10px;
-        font-weight: bold;
         padding: 3px 6px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background 0.2s;
+        font-weight: bold;
+        transition: background 0.4s;
     }
 
         .task-buttons button:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: white;
         }
 
 .task-text {
@@ -164,73 +162,86 @@ h1 {
     overflow-wrap: break-word;
     white-space: pre-wrap;
     max-width: 100%;
-    padding-left: 12px;
+    padding-left: 3px;
     padding-right: 12px;
     box-sizing: border-box;
     width: 100%;
     margin: 0;
+    font-size: 25px;
+    font-family: 'Nocturne Serif', serif;
+    color: #4C4E81;
+}
+
+    .task-text.strikethrough {
+        text-decoration: line-through;
+        color: #919EC9;
+    }
+
+.task-status {
+    font-family: 'Open Sans Variable', sans-serif;
+    font-size: 14px;
+    color: #474972;
+    margin-right: 5px;
 }
 
 /* Стилизация скроллбара */
-.pink-square-bot::-webkit-scrollbar {
+.blue-square-bot::-webkit-scrollbar {
     width: 8px;
 }
 
-.pink-square-bot::-webkit-scrollbar-thumb {
+.blue-square-bot::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
 }
 
-.pink-square-bot::-webkit-scrollbar-track {
+.blue-square-bot::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
-/* Контейнер для параллакса */
+
+/* Параллакс-эффект */
 .parallax-container {
     position: fixed;
-    bottom: 5%; /* Опускаем контейнер ниже */
+    bottom: 5%;
     right: 15%;
-    width: 200px; /* Размер блока */
+    width: 200px;
     height: auto;
     pointer-events: none;
-    z-index: 10; /* Убедимся, что блок находится поверх других элементов */
+    z-index: 10;
+    display: none;
 }
 
-/* Фон (сеточка) */
 .parallax-background {
     position: absolute;
     width: 120%;
     height: auto;
-    opacity: 0.5; /* Полупрозрачность */
+    opacity: 0.5;
     transition: transform 0.2s ease-out;
-    bottom: 0; /* Оставляем сетку на месте */
-    right: 0;
+    bottom: 20px;
+    right: -20px;
 }
 
-/* Телефон */
 .parallax-image {
     position: absolute;
     width: 100%;
     height: auto;
     transition: transform 0.1s ease-out;
-    bottom: -20px; /* Опускаем телефон ниже */
-    left: -20px; /* Смещаем телефон левее */
+    bottom: -20px;
+    left: -20px;
 }
 
-/* Контейнер для книг (убедимся, что книги выше растения) */
-/* Контейнер для книг */
 .parallax-books-container {
     position: fixed;
-    bottom: 5%; /* Опускаем книги ниже */
-    left: 24%; /* Перемещаем книги правее, ближе к контейнеру задач */
-    width: 150px; /* Размер изображения книг */
+    bottom: 5%;
+    left: 24%;
+    width: 150px;
     height: auto;
     pointer-events: none;
-    z-index: 10; /* Книги выше других элементов */
-    transform: translateX(-50%); /* Смещаем книги влево на половину их ширины */
+    z-index: 10;
+    transform: translateX(-50%);
+    display: none;
 }
 
-/* Изображение книг */
 .parallax-books {
     width: 100%;
     height: auto;
@@ -239,36 +250,109 @@ h1 {
 
 .parallax-plant-container {
     position: fixed;
-    bottom: 15%; /* Позиционируем растение ниже */
-    left: 14%; /* Размещаем растение слева от контейнера задач */
-    width: 150px; /* Размер изображения растения */
+    bottom: 15%;
+    left: 14%;
+    width: 150px;
     height: auto;
     pointer-events: none;
-    z-index: 5; /* Растение будет за книгами (z-index книг должен быть выше) */
+    z-index: 5;
+    display: none;
 }
 
-/* Изображение растения */
 .parallax-plant {
     width: 100%;
     height: auto;
     transition: transform 0.1s ease-out;
 }
-.time-date {
-    font-size: 12px;
-    color: #474972;
-    margin-bottom: 5px;
-    font-family: 'Open Sans Variable', sans-serif;
-    padding-right: 3px;
-    font-weight: bold;
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .blue-square-top, .blue-square-bot {
+        width: 100%;
+    }
+
+    .blue-square-bot {
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .task-text {
+        font-size: 20px;
+    }
+
+    .add-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .blue-square-top {
+        padding: 5px;
+    }
+
+    .blue-square-bot {
+        padding: 5px;
+    }
+
+    .added-item {
+        padding: 8px;
+    }
+
+    .blue-square-bot::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .blue-square-bot::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.7);
+    }
 }
-.task-text.strikethrough {
-    text-decoration: line-through;
-    color: #919EC9; /* Цвет текста при зачеркивании */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .blue-square-bot {
+        height: 300px;
+    }
+
+    .task-text {
+        font-size: 18px;
+    }
+
+    .add-button {
+        width: 30px;
+        height: 30px;
+    }
 }
-.task-status {
-    font-family: 'Nocturne Serif', serif;
-    font-size: 16px;
-    color: #474972;
-    font-weight: bold;
-    margin-right: 10px;
+
+@media (max-width: 320px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .blue-square-bot {
+        height: 250px;
+    }
+
+    .task-text {
+        font-size: 16px;
+    }
+
+    .add-button {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .parallax-container, .parallax-books-container, .parallax-plant-container {
+        display: block;
+    }
 }
