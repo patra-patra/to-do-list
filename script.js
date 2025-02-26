@@ -14,20 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const buttonContainer = document.createElement("div");
             buttonContainer.classList.add("task-buttons");
 
-            // Создаём элемент для времени и даты
-            const timeDateElement = document.createElement("div");
-            timeDateElement.classList.add("time-date");
-            const now = new Date();
-            const formattedDate = now.toLocaleDateString("ru-RU", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-            });
-            const formattedTime = now.toLocaleTimeString("ru-RU", {
-                hour: "2-digit",
-                minute: "2-digit",
-            });
-            timeDateElement.textContent = `${formattedDate}, ${formattedTime}`;
+            // Создаём элемент для статуса задачи
+            const statusElement = document.createElement("div");
+            statusElement.classList.add("task-status");
+            statusElement.textContent = "В процессе"; // По умолчанию задача "в процессе"
 
             // Создаём горизонтальную линию
             const separator = document.createElement("hr");
@@ -82,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // Добавляем элементы в контейнер кнопок
-            buttonContainer.appendChild(timeDateElement); // Добавляем время и дату
+            buttonContainer.appendChild(statusElement); // Добавляем статус задачи
             buttonContainer.appendChild(separator);
             buttonContainer.appendChild(editButton);
             buttonContainer.appendChild(deleteButton);
@@ -106,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Обработчик для изменения цвета и зачеркивания текста
+    // Обработчик для изменения цвета, зачеркивания текста и статуса задачи
     outputContainer.addEventListener("click", function (event) {
         let task = event.target.closest(".added-item");
         if (task && !event.target.closest("button")) {
@@ -116,6 +106,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // Переключаем класс для зачеркивания текста
             const taskText = task.querySelector(".task-text");
             taskText.classList.toggle("strikethrough");
+
+            // Меняем статус задачи
+            const statusElement = task.querySelector(".task-status");
+            if (task.classList.contains("clicked")) {
+                statusElement.textContent = "Выполнено";
+            } else {
+                statusElement.textContent = "В процессе";
+            }
         }
     });
 });

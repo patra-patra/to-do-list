@@ -264,3 +264,10 @@ h1 {
     text-decoration: line-through;
     color: #919EC9; /* Цвет текста при зачеркивании */
 }
+.task-status {
+    font-family: 'Nocturne Serif', serif;
+    font-size: 16px;
+    color: #474972;
+    font-weight: bold;
+    margin-right: 10px;
+}
