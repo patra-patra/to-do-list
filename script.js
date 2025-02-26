@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
             buttonContainer.appendChild(deleteButton);
 
             // Добавляем элементы в задачу
-            newItem.appendChild(buttonContainer);
             newItem.appendChild(taskText);
+            newItem.appendChild(buttonContainer);
 
             // Добавляем задачу в контейнер
             outputContainer.appendChild(newItem);
