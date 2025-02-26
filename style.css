@@ -9,12 +9,12 @@
 @font-face {
     font-family: 'Open Sans Variable';
     src: url('fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900; /* Диапазон весов шрифта */
-    font-stretch: 75% 100%; /* Диапазон ширины шрифта */
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
     font-style: normal;
 }
 
-/* Общие стили для всего сайта */
+/* Общие стили */
 body {
     font-family: 'Open Sans Variable', sans-serif;
     margin: 0;
@@ -27,12 +27,11 @@ body {
     min-height: 100vh;
 }
 
-/* Заголовок h1 в Nocturne Serif */
 h1 {
     font-family: 'Nocturne Serif', serif;
     font-size: 40px;
-    margin: 0; /* Убираем все отступы */
-    margin-bottom: 15px; /* Добавляем только нижний отступ */
+    margin: 0;
+    margin-bottom: 15px;
     text-align: center;
     font-weight: bold;
     background: linear-gradient(to left, #4C4E81, #646CAC, #7782B8, #4C4E81);
@@ -40,32 +39,22 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-hr {
-    border: none; /* Убираем стандартную границу */
-    height: 2px; /* Толщина линии */
-    background-color: #474972; /* Цвет линии */
-    margin: 8px 10px 0 0; /* Отступы */
-    flex-grow: 1; /* Растягиваем линию */
-    box-sizing: border-box;
-}
-
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0; /* Убедитесь, что у контейнера нет лишних отступов */
+    margin: 0;
     padding: 0;
 }
 
-/* Общие стили для квадратов */
-.pink-square-top, .pink-square-bot {
+/* Стили для квадратов */
+.blue-square-top, .blue-square-bot {
     width: 700px;
     border-radius: 10px;
     background: #474972;
 }
 
-/* Верхний квадрат */
-.pink-square-top {
+.blue-square-top {
     height: 40px;
     display: flex;
     align-items: center;
@@ -73,8 +62,7 @@ hr {
     margin-bottom: 10px;
 }
 
-/* Нижний квадрат */
-.pink-square-bot {
+.blue-square-bot {
     height: 500px;
     padding: 10px;
     overflow-y: auto;
@@ -84,7 +72,7 @@ hr {
 }
 
 /* Поле ввода */
-.pink-square-top input {
+.blue-square-top input {
     font-family: 'Open Sans Variable', sans-serif;
     flex-grow: 1;
     height: 100%;
@@ -97,12 +85,12 @@ hr {
     outline: none;
 }
 
-    .pink-square-top input::placeholder {
+    .blue-square-top input::placeholder {
         font-family: 'Open Sans Variable', sans-serif;
         color: #919EC9;
     }
 
-/* Кнопка */
+/* Кнопка добавления */
 .add-button {
     font-family: 'Open Sans Variable', sans-serif;
     width: 40px;
@@ -122,10 +110,9 @@ hr {
         background-color: #595C9C;
     }
 
-/* Стили для создаваемых элементов */
+/* Стили для задач */
 .added-item {
     width: 97%;
-    background: #919EC9;
     background: linear-gradient(to top, #F4F6FA, #B5BFDB);
     color: #474972;
     padding: 10px;
@@ -146,7 +133,6 @@ hr {
         color: #919EC9;
     }
 
-/* Контейнер для кнопок */
 .task-buttons {
     display: flex;
     justify-content: flex-end;
@@ -155,7 +141,6 @@ hr {
     margin-left: 1px;
 }
 
-    /* Общие стили для кнопок */
     .task-buttons button {
         background: rgba(255, 255, 255, 0.3);
         border: none;
@@ -187,94 +172,10 @@ hr {
     color: #4C4E81;
 }
 
-/* Стилизация скроллбара */
-.pink-square-bot::-webkit-scrollbar {
-    width: 8px;
-}
-
-.pink-square-bot::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-}
-
-.pink-square-bot::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-/* Контейнер для параллакса */
-.parallax-container {
-    position: fixed;
-    bottom: 5%; /* Опускаем контейнер ниже */
-    right: 15%;
-    width: 200px; /* Размер блока */
-    height: auto;
-    pointer-events: none;
-    z-index: 10; /* Убедимся, что блок находится поверх других элементов */
-    display: none; /* По умолчанию скрываем */
-}
-
-.parallax-background {
-    position: absolute;
-    width: 120%;
-    height: auto;
-    opacity: 0.5; /* Полупрозрачность */
-    transition: transform 0.2s ease-out;
-    bottom: 20px; /* Оставляем сетку на месте */
-    right: -20px; /* Сдвигаем сетку вправо */
-}
-
-/* Телефон */
-.parallax-image {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    transition: transform 0.1s ease-out;
-    bottom: -20px; /* Опускаем телефон ниже */
-    left: -20px; /* Смещаем телефон левее */
-}
-
-.parallax-books-container {
-    position: fixed;
-    bottom: 5%; /* Опускаем книги ниже */
-    left: 24%; /* Перемещаем книги правее, ближе к контейнеру задач */
-    width: 150px; /* Размер изображения книг */
-    height: auto;
-    pointer-events: none;
-    z-index: 10; /* Книги выше других элементов */
-    transform: translateX(-50%); /* Смещаем книги влево на половину их ширины */
-    display: none; /* По умолчанию скрываем */
-}
-
-/* Изображение книг */
-.parallax-books {
-    width: 100%;
-    height: auto;
-    transition: transform 0.1s ease-out;
-}
-
-.parallax-plant-container {
-    position: fixed;
-    bottom: 15%; /* Позиционируем растение ниже */
-    left: 14%; /* Размещаем растение слева от контейнера задач */
-    width: 150px; /* Размер изображения растения */
-    height: auto;
-    pointer-events: none;
-    z-index: 5; /* Растение будет за книгами (z-index книг должен быть выше) */
-    display: none; /* По умолчанию скрываем */
-}
-
-/* Изображение растения */
-.parallax-plant {
-    width: 100%;
-    height: auto;
-    transition: transform 0.1s ease-out;
-}
-
-.task-text.strikethrough {
-    text-decoration: line-through;
-    color: #919EC9; /* Цвет текста при зачеркивании */
-}
+    .task-text.strikethrough {
+        text-decoration: line-through;
+        color: #919EC9;
+    }
 
 .task-status {
     font-family: 'Open Sans Variable', sans-serif;
@@ -283,103 +184,175 @@ hr {
     margin-right: 5px;
 }
 
+/* Стилизация скроллбара */
+.blue-square-bot::-webkit-scrollbar {
+    width: 8px;
+}
+
+.blue-square-bot::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.blue-square-bot::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Параллакс-эффект */
+.parallax-container {
+    position: fixed;
+    bottom: 5%;
+    right: 15%;
+    width: 200px;
+    height: auto;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+}
+
+.parallax-background {
+    position: absolute;
+    width: 120%;
+    height: auto;
+    opacity: 0.5;
+    transition: transform 0.2s ease-out;
+    bottom: 20px;
+    right: -20px;
+}
+
+.parallax-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
+    bottom: -20px;
+    left: -20px;
+}
+
+.parallax-books-container {
+    position: fixed;
+    bottom: 5%;
+    left: 24%;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+    z-index: 10;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.parallax-books {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
+}
+
+.parallax-plant-container {
+    position: fixed;
+    bottom: 15%;
+    left: 14%;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+    z-index: 5;
+    display: none;
+}
+
+.parallax-plant {
+    width: 100%;
+    height: auto;
+    transition: transform 0.1s ease-out;
+}
+
 /* Медиа-запросы для адаптивности */
-
-/* Для экранов меньше 768px (планшеты и мобильные устройства) */
 @media (max-width: 768px) {
-    body {
-        background: linear-gradient(to top, #F4F6FA, #B5BFDB);
-    }
-
     .container {
-        width: 90%; /* Уменьшаем ширину контейнера */
+        width: 90%;
     }
 
-    .pink-square-top, .pink-square-bot {
-        width: 100%; /* Квадраты занимают всю ширину контейнера */
+    .blue-square-top, .blue-square-bot {
+        width: 100%;
     }
 
-    .pink-square-bot {
-        height: 400px; /* Уменьшаем высоту нижнего квадрата */
+    .blue-square-bot {
+        height: 400px;
     }
 
     h1 {
-        font-size: 30px; /* Уменьшаем размер заголовка */
+        font-size: 30px;
     }
 
     .task-text {
-        font-size: 20px; /* Уменьшаем размер текста задач */
+        font-size: 20px;
     }
 
     .add-button {
-        width: 35px; /* Уменьшаем размер кнопки */
+        width: 35px;
         height: 35px;
     }
 
-    .pink-square-top {
-        padding: 5px; /* Уменьшаем отступы внутри верхнего квадрата */
+    .blue-square-top {
+        padding: 5px;
     }
 
-    .pink-square-bot {
-        padding: 5px; /* Уменьшаем отступы внутри нижнего квадрата */
+    .blue-square-bot {
+        padding: 5px;
     }
 
     .added-item {
-        padding: 8px; /* Уменьшаем отступы внутри элементов задач */
+        padding: 8px;
     }
 
-    .pink-square-bot::-webkit-scrollbar {
-        width: 6px; /* Уменьшаем ширину скроллбара */
+    .blue-square-bot::-webkit-scrollbar {
+        width: 6px;
     }
 
-    .pink-square-bot::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.7); /* Делаем скроллбар более заметным */
+    .blue-square-bot::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.7);
     }
 }
 
-/* Для экранов меньше 480px (мобильные устройства) */
 @media (max-width: 480px) {
     h1 {
-        font-size: 24px; /* Ещё больше уменьшаем размер заголовка */
+        font-size: 24px;
     }
 
-    .pink-square-bot {
-        height: 300px; /* Ещё больше уменьшаем высоту нижнего квадрата */
+    .blue-square-bot {
+        height: 300px;
     }
 
     .task-text {
-        font-size: 18px; /* Ещё больше уменьшаем размер текста задач */
+        font-size: 18px;
     }
 
     .add-button {
-        width: 30px; /* Ещё больше уменьшаем размер кнопки */
+        width: 30px;
         height: 30px;
     }
 }
 
-/* Для экранов меньше 320px (очень маленькие устройства) */
 @media (max-width: 320px) {
     h1 {
-        font-size: 20px; /* Ещё больше уменьшаем размер заголовка */
+        font-size: 20px;
     }
 
-    .pink-square-bot {
-        height: 250px; /* Ещё больше уменьшаем высоту нижнего квадрата */
+    .blue-square-bot {
+        height: 250px;
     }
 
     .task-text {
-        font-size: 16px; /* Ещё больше уменьшаем размер текста задач */
+        font-size: 16px;
     }
 
     .add-button {
-        width: 25px; /* Ещё больше уменьшаем размер кнопки */
+        width: 25px;
         height: 25px;
     }
 }
 
-/* Показываем изображения на экранах шире 1024px */
 @media (min-width: 1400px) {
     .parallax-container, .parallax-books-container, .parallax-plant-container {
-        display: block; /* или flex, в зависимости от вашей верстки */
+        display: block;
     }
 }
